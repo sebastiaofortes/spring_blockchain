@@ -1,6 +1,6 @@
 package com.blockchain;
 
-import org.apache.http.HttpClient;
+import org.apache.http.client.HttpClient;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import java.util.ArrayList;
