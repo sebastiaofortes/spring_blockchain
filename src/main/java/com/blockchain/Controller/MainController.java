@@ -144,7 +144,7 @@ System.out.println(data);
 
 broadcast.pow(data);
 
-return "User X: sucessfull - difficultyhash adicionado ao se bloco";
+return json.getString("difficultyHash") + json.getString("Hash") + String.valueOf(json.getInt("nonce"));
 }
 
 @ResponseBody
