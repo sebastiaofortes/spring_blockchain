@@ -14,11 +14,12 @@
   <tr th:each="block : ${blocks}">
      <td th:text="${block.Id}">2</td>
     <td th:text="${block.Hash}">Ana Maria Lindoval</td>
-    
+    <td th:text="${block.Previous_hash}">2</td>
+<td th:text="${block.Difficulty_hash}">2</td>
 
        <td> 
    
-   <form action="/dell_node" method="GET">
+   <form action="/dell_trans" method="GET">
   
   <input type="hidden" th:value="${block.Id}" name="nome">
   <input type="submit" value="Deletar">
