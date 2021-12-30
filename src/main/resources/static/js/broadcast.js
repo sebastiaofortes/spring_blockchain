@@ -6,7 +6,7 @@ data = 'data='+data;
 // no php usamos:
 // header("Access-Control-Allow-Origin: *"); para all domínios
 
-var response = await fetch('https://blockchain7spring.herokuapp.com/localpow', {
+var response = await fetch('/localpow', {
 	method: 'POST',
 	body: data, // The data
 	headers: {
