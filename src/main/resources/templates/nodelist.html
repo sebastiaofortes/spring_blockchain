@@ -16,6 +16,18 @@
     <td th:text="${node.IP}">Ana Maria Lindoval</td>
     
 
+       <td> 
+   
+   <form action="/dell_node" method="GET">
+  
+  <input type="hidden" th:value="${node.nome}" name="nome">
+  <input type="submit" value="Deletar">
+</form> 
+   
+    </td>
+    
+    
+    
   </tr>
 </tbody>
 
