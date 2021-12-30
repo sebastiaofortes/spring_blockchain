@@ -123,6 +123,13 @@ public String validation() {
 	return "validation";
 }
 
+@RequestMapping("/test")
+public String Test() {
+	
+	
+	
+	return "test";
+}
 
 
 @Transactional
