@@ -12,15 +12,15 @@
 </thead>
 <tbody>
   <tr th:each="block : ${blocks}">
-     <td th:text="${node.nome}">2</td>
-    <td th:text="${node.IP}">Ana Maria Lindoval</td>
+     <td th:text="${block.Id}">2</td>
+    <td th:text="${block.Hash}">Ana Maria Lindoval</td>
     
 
        <td> 
    
    <form action="/dell_node" method="GET">
   
-  <input type="hidden" th:value="${node.nome}" name="nome">
+  <input type="hidden" th:value="${block.Id}" name="nome">
   <input type="submit" value="Deletar">
 </form> 
    
