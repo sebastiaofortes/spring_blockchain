@@ -36,7 +36,9 @@ public class MainController {
  @Autowired
  public BlockRepository repositorioLocal;
 	
-
+ @Autowired
+ public NodeRepository noderepository;
+	
  public Block CriarBlock(String transacao, String assinatura)
  {	
 	 
