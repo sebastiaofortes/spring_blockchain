@@ -137,6 +137,21 @@ public String Test() {
 }
 
 
+	
+	
+@Transactional
+@GetMapping(path="/dell_node") 
+	  public @ResponseBody String dellNode(@RequestParam String nome) {
+
+	noderepository.delete(nome);
+	System.out.println("Relacionamentos excluídos ");
+	  
+	 return "Dados deletados com sucesso!";	  
+	  }	
+	
+	
+	
+	
 @RequestMapping("/nodelist")
 public String listando(ModelMap model) {
 
