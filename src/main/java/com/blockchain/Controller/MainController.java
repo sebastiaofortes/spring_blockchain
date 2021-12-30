@@ -140,7 +140,7 @@ public String LocalPOW(@RequestParam String data) {
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
-repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
+// repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
 
 broadcast.pow(data);
 
