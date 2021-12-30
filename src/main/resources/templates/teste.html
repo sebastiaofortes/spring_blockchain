@@ -15,7 +15,7 @@ async function mine(text) {
 var nonce = 0;
 
 
-var myfetch = await fetch('https://blockchain7spring.herokuapp.com/localblock', {
+var myfetch = await fetch('/localblock', {
 	method: 'POST',
 	body: 'data='+text, // The data
 	headers: {
