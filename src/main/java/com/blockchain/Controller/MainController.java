@@ -137,6 +137,34 @@ public String Test() {
 }
 
 
+@RequestMapping("/nodelist")
+public String listando(ModelMap model) {
+
+	List<Node> lista = (List<Node>) noderepository.findAll();
+	int numres = (lista.size());
+	String textres = Integer.toString(numres);
+	model.addAttribute("numeroresultados", textres);
+	model.addAttribute("nodes", lista);
+	return "nodelist";
+}
+
+@RequestMapping("/addnode")
+public String AddNode() {
+	
+	
+	
+	return "addnode";
+}
+
+@RequestMapping("/createnode")
+public String CreateNode(@RequestParam String nome, @RequestParam String ip) {
+	Node n =new Node(nome, ip);
+	
+	noderepository.save(n);
+	
+	return "createnode";
+}	
+	
 @Transactional
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
