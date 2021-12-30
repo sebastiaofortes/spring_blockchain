@@ -138,6 +138,22 @@ public String Test() {
 }
 
 
+
+
+@RequestMapping("/translist")public String listandoT (ModelMap model) { 
+
+List<Block> lista = (List<Block>) repositorioLocal.findAll();
+int numres = (lista.size());
+String textres = Integer.toString(numres);
+model.addAttribute("numeroresultados", textres);
+model.addAttribute("blocks", lista);
+return "translist";
+}
+
+
+
+
+
 	
 	
 @Transactional
