@@ -56,7 +56,7 @@ public class Block {
 
 		// Constructor for the block
 		public Block(String data, String assinatura, String autor,
-					String previousHash)
+					String previousHash, String timeStamp)
 		{	
 			this.nonce = 1;
 			this.assinatura = assinatura;
@@ -65,7 +65,7 @@ public class Block {
 			this.previousHash
 				= previousHash;
 			this.timeStamp
-				= new Date().getTime();
+				= timeStamp;
 			this.hash
 				= calculateHash();
 		}
