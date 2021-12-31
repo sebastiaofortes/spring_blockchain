@@ -252,7 +252,7 @@ return "User X: socessfull";
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/remotepow")
-public String RemotePOW(@RequestParam String data) {
+public String RemotePOW(@RequestParam String data, @RequestParam String timeStamp) {
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
