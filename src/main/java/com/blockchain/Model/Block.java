@@ -42,7 +42,7 @@ public class Block {
 		public String hash;
 		public String previousHash;
 		private String data;
-		private long timeStamp;
+		private String timeStamp;
 		private String assinatura;
 		private int nonce;
 		private String autor;
@@ -145,11 +145,11 @@ public class Block {
 			this.data = data;
 		}
 
-		public long getTimeStamp() {
+		public String getTimeStamp() {
 			return timeStamp;
 		}
 
-		public void setTimeStamp(long timeStamp) {
+		public void setTimeStamp(String timeStamp) {
 			this.timeStamp = timeStamp;
 		}
 
