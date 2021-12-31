@@ -81,7 +81,7 @@ public class Block {
 				= Hash.sha256(
 					nonce 
 					+ previousHash
-					+ Long.toString(timeStamp)
+					+ timeStamp
 					+ data);
 
 			return calculatedhash;
