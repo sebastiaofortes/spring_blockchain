@@ -1,6 +1,6 @@
-async function broadcast(data) {
+async function broadcast(data, timeStamp) {
 
-data = 'data='+data;
+data = 'data='+data+'&timeStamp='+timeStamp;
 
 // Para as requisições sejam recebidas é preciso fazer permitir os servidoes permitirem requests de seu domínio
 // no php usamos:
