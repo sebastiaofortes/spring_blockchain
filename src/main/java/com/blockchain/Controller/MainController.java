@@ -168,7 +168,7 @@ return "translist";
 	
 @Transactional
 @GetMapping(path="/dell_block") 
-	  public @ResponseBody String dellBlock(@RequestParam int nome) {
+	  public @ResponseBody String dellBlock(@RequestParam String nome) {
 
 	repositorioLocal.deleteById(nome);
 	System.out.println("Relacionamentos excluídos ");
