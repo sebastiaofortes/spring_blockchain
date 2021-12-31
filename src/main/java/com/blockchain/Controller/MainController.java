@@ -230,7 +230,7 @@ System.out.println(data);
 
 Block novoBlock = CriarBlock(data, "assinatura",timeStamp);
 
-broadcast.block(data);
+broadcast.block(data, timeStamp);
 
 return novoBlock.Tojson();
 }
