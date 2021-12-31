@@ -170,7 +170,7 @@ return "translist";
 @GetMapping(path="/dell_block") 
 	  public @ResponseBody String dellBlock(@RequestParam String nome) {
 
-        Block b = repositorioLocal.findById(nome);
+        Block b = (Block) repositorioLocal.findById(nome);
         repositorioLocal.delete(b);
 
 	System.out.println("Relacionamentos excluídos ");
