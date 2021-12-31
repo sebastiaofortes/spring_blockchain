@@ -56,7 +56,7 @@ public P2P() {
 
 
 @Async
-public void block(String mensagem){
+public void block(String mensagem, String timeStamp){
 	
 	
 	// percorre o array filhos e envia para todos os seus filhos
@@ -78,7 +78,7 @@ public void block(String mensagem){
 		
 
 try {
-	HttpSend(n, mensagem, "/remoteblock");
+	HttpSend(n, mensagem, "/remoteblock", timeStamp);
 } catch (ClientProtocolException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
@@ -95,7 +95,7 @@ try {
 	
 }	
 
-private void HttpSend(Node n, String mensagem, String action) throws ClientProtocolException, IOException {
+private void HttpSend(Node n, String mensagem, String action, String timeStamp) throws ClientProtocolException, IOException {
 
 	
     CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -106,6 +106,7 @@ private void HttpSend(Node n, String mensagem, String action) throws ClientProto
 
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("data", mensagem));
+params.add(new BasicNameValuePair("timeStamp", timeStamp));
         request.setEntity(new UrlEncodedFormEntity(params));
         
         
@@ -142,7 +143,7 @@ private void HttpSend(Node n, String mensagem, String action) throws ClientProto
 
 
 @Async
-public void pow(String mensagem) {
+public void pow(String mensagem, String timeStamp) {
 	
 	// percorre o array filhos e envia para todos os seus filhos
 	// percorre o array filhos e envia para todos os pais;
@@ -164,7 +165,7 @@ public void pow(String mensagem) {
 		
 		
 		try {
-			HttpSend(n, mensagem, "/remotepow");
+			HttpSend(n, mensagem, "/remotepow", timeStamp);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
