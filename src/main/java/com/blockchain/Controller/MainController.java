@@ -171,7 +171,7 @@ return "translist";
 	  public @ResponseBody String dellBlock(@RequestParam String nome) {
 
        
-        repositorioLocal.findById(nome)
+        repositorioLocal.findById(nome);
 
 	System.out.println("Relacionamentos excluídos ");
 	  
