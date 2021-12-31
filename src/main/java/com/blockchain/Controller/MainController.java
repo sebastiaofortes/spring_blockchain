@@ -217,7 +217,7 @@ System.out.println(data);
 
 repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
 
-broadcast.pow(data);
+broadcast.pow(data,timeStamp);
 
 return json.getString("difficultyHash") + json.getString("Hash") + String.valueOf(json.getInt("nonce"));
 }
