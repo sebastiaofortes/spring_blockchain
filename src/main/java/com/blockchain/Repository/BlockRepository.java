@@ -24,5 +24,6 @@ Block ultimoRegistro();
 @Query(value = "UPDATE TRANS SET DIFFICULTY_HASH = ?1, NONCE = ?2 WHERE HASH = ?3", nativeQuery=true)
 int updateHash(String ph, int nonce, String hash);
 
+int deleteByNome(String nome);
 
 }
