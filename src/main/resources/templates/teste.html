@@ -8,8 +8,10 @@
 
 const data = 'Principal';
 
+var timeStamp = 1234;
+
 // a função mine deve ser assíncrona pois ela vai ter que esperar com "await" os algorpitmos de criptografia que também sãp assíncronos
-async function mine(text) {
+async function mine(text, timeStamp) {
 
 
 var nonce = 0;
@@ -17,7 +19,7 @@ var nonce = 0;
 
 var myfetch = await fetch('/localblock', {
 	method: 'POST',
-	body: 'data='+text+'&timeStamp=12', // The data
+	body: 'data='+text+'&timeStamp='+timeStamp, // The data
 	headers: {
 		'Content-type': 'application/x-www-form-urlencoded' // The type of data you're sending
 	}
@@ -62,9 +64,9 @@ var jsonString = JSON.stringify(obj);
 return jsonString;
 }
 
-mine(data).then(result =>{ 
+mine(data, timeStamp).then(result =>{ 
 alert(result);
-return broadcast(result);	// distribuí os dados pela rede.
+return broadcast(result, timeStamp);	// distribuí os dados pela rede.
 }).then(
 result => {return result.text()
 }).then(
