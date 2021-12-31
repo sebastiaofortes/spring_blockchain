@@ -40,7 +40,7 @@ public class MainController {
  @Autowired
  public NodeRepository noderepository;
 	
- public Block CriarBlock(String transacao, String assinatura)
+ public Block CriarBlock(String transacao, String assinatura, String timeStamp)
  {	
 	 
 	String meuLogin = "sebastiaofortes4@gmail.com"; 
@@ -50,12 +50,12 @@ public class MainController {
 	Block newBlock;
 	
 	if (blocoanterior != null) {
-	newBlock = new Block(transacao, assinatura, meuLogin, blocoanterior.hash);
+	newBlock = new Block(transacao, assinatura, meuLogin, blocoanterior.hash, timeStamp);
 	System.out.println("Atribuindo dados ao novo bloco");
 	}
 	else 
 	{
-	newBlock = new Block(transacao, assinatura,meuLogin, "genesis");
+	newBlock = new Block(transacao, assinatura,meuLogin, "genesis",timeStamp);
 	System.out.println("criando bloco genesis");
 	}
 	
@@ -225,10 +225,10 @@ return json.getString("difficultyHash") + json.getString("Hash") + String.valueO
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/localblock")
-public String LocalBlock(@RequestParam String data) {
+public String LocalBlock(@RequestParam String data, @RequestParam String timeStamp) {
 System.out.println(data);
 
-Block novoBlock = CriarBlock(data, "assinatura");
+Block novoBlock = CriarBlock(data, "assinatura",timeStamp);
 
 broadcast.block(data);
 
@@ -238,9 +238,9 @@ return novoBlock.Tojson();
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/remoteblock")
-public String RemoteBlock(@RequestParam String data) {
+public String RemoteBlock(@RequestParam String data, @RequestParam String timeStamp) {
 
-CriarBlock(data, "assinatura");
+CriarBlock(data, "assinatura", timeStamp);
 
 
 	
