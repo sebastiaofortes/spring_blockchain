@@ -64,12 +64,12 @@ public void block(String mensagem){
 	
 	// os pais ao receber vão enviar para seus pais e seus filhos e assim sucessivamente. 
 	
-	try{
-	Thread.sleep(7000);	
-	}
-	catch(InterruptedException e) {
+	// try{
+	// Thread.sleep(7000);	
+	// }
+	// catch(InterruptedException e) {
 		
-	}
+	// }
 
 
 	ArrayList<Node> nodes = (ArrayList<Node>) noderepository.findAll();
