@@ -211,7 +211,7 @@ public String CreateNode(@RequestParam String nome, @RequestParam String ip) {
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/localpow")
-public String LocalPOW(@RequestParam String data) {
+public String LocalPOW(@RequestParam String data,@RequestParam String timeStamp) {
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
