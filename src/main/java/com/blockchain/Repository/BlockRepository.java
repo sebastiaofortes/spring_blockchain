@@ -25,5 +25,8 @@ Block ultimoRegistro();
 int updateHash(String ph, int nonce, String hash);
 
 
+@Modifying
+@Query(value = "DELETE FROM TRANS WHERE ID = ?1", nativeQuery=true)
+int deleteB(int nonme);
 
 }
