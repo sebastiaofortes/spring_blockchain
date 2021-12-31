@@ -17,7 +17,7 @@ var nonce = 0;
 
 var myfetch = await fetch('/localblock', {
 	method: 'POST',
-	body: 'data='+text, // The data
+	body: 'data='+text+'&timeStamp=12', // The data
 	headers: {
 		'Content-type': 'application/x-www-form-urlencoded' // The type of data you're sending
 	}
