@@ -59,7 +59,7 @@ public class MainController {
 	System.out.println("criando bloco genesis");
 	}
 	
-	newBlock.mineBlock(2);
+	
 	
 	repositorioLocal.save(newBlock);
 	
