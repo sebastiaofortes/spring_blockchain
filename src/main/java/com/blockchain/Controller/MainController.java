@@ -137,6 +137,14 @@ public String Test() {
 	return "teste";
 }
 
+@RequestMapping("/test2")
+public String Test2() {
+	
+	
+	
+	return "teste2";
+}
+
 
 
 
