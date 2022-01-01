@@ -146,6 +146,16 @@ public String Test2() {
 }
 
 
+@RequestMapping("/mine_block")
+public String MineBlock() {
+	
+	
+	
+	return "mine_block";
+}
+
+
+
 
 
 @RequestMapping("/translist")public String listandoT (ModelMap model) { 
