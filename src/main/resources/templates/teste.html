@@ -35,13 +35,13 @@ var difficulty = parseInt(jsonf.difficulty); // nível de dificuldade da prova d
 
 console.log(jsonf);
 
-var hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + jsonf.hash + nonce);  // gera o hash
+var hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);  // gera o hash
 
 var antes = Date.now();  		// incia contagem de tempo
 
 while (!(/^0*$/.test(hash.substring(0, difficulty)))) {  	// verifica se o hash atende a prova de trabalho
             nonce++;
-            hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + jsonf.hash + nonce);
+            hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);
         }
 
 var duracao = Date.now() - antes;       // finaliza a contagem de tempo
