@@ -215,7 +215,7 @@ public String LocalPOW(@RequestParam String data,@RequestParam String timeStamp)
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
-repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
+repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Id"));
 
 broadcast.pow(data,timeStamp);
 
@@ -256,7 +256,7 @@ public String RemotePOW(@RequestParam String data, @RequestParam String timeStam
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
-repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
+repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Id"));
 
 	
 return "User X: socessfull";
