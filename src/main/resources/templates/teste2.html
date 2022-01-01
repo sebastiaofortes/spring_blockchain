@@ -14,8 +14,6 @@ var timeStamp = Date.now();
 async function mine(text, timeStamp) {
 
 
-var nonce = 0;
-
 
 var myfetch = await fetch('/localblock', {
 	method: 'POST',
@@ -29,39 +27,7 @@ var myfetch = await fetch('/localblock', {
 
 var jsontext = await myfetch.text();
 
-var jsonf = JSON.parse(jsontext);
-
-var difficulty = parseInt(jsonf.difficulty); // nível de dificuldade da prova de trabalho. 
-
-console.log(jsonf);
-
-var hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);  // gera o hash
-
-var antes = Date.now();  		// incia contagem de tempo
-
-while (!(/^0*$/.test(hash.substring(0, difficulty)))) {  	// verifica se o hash atende a prova de trabalho
-            nonce++;
-            hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);
-        }
-
-var duracao = Date.now() - antes;       // finaliza a contagem de tempo
-
-alert("difficultyhash minerado:  " + hash);
-alert("Tempo de mineração: " + duracao + " ms ");
-
-var obj = new Object();
-
-obj.previoushash  = jsonf.previousHash;
-obj.Hash = jsonf.hash;
-obj.data = jsonf.data;
-obj.timestamp  = jsonf.timestamp;
-obj.nonce = nonce;
-obj.difficulty = difficulty;
-obj.difficultyHash = hash;
-
-var jsonString = JSON.stringify(obj);
-
-return jsonString;
+return jsontext;
 }
 
 mine(data, timeStamp).then(result =>{ 
