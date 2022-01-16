@@ -1,3 +1,5 @@
+<input type="hidden" th:value="${idv}" name="idv" id="idv">
+
 <script src="js/sha256.js"> // Biblioteca com os algorítmos para a geração de hash's
 </script> 
 
@@ -6,7 +8,9 @@
 
 <script> 
 
-const data = 'Principal';
+const data = document. getElementById('idv').value;
+
+alert(data);
 
 var timeStamp = Date.now();
 
@@ -17,9 +21,9 @@ async function mine(text, timeStamp) {
 var nonce = 0;
 
 
-var myfetch = await fetch('/localblock', {
+var myfetch = await fetch('/get_local_block', {
 	method: 'POST',
-	body: 'data='+text+'&timeStamp='+timeStamp, // The data
+	body: 'id='+text+'&timeStamp='+timeStamp, // The data
 	headers: {
 		'Content-type': 'application/x-www-form-urlencoded' // The type of data you're sending
 	}
@@ -32,6 +36,8 @@ var jsontext = await myfetch.text();
 var jsonf = JSON.parse(jsontext);
 
 var difficulty = parseInt(jsonf.difficulty); // nível de dificuldade da prova de trabalho. 
+
+alert(difficulty);
 
 console.log(jsonf);
 

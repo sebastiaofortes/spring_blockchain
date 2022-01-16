@@ -29,4 +29,7 @@ int updateHash(String ph, int nonce, String hash);
 @Query(value = "DELETE FROM TRANS WHERE ID = ?1", nativeQuery=true)
 int deleteB(int nonme);
 
+@Query(value = "SELECT * FROM TRANS WHERE ID = ?1", nativeQuery=true)
+Block GetBlock(int id);
+
 }

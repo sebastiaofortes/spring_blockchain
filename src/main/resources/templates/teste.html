@@ -1,0 +1,46 @@
+<script src="js/sha256.js"> // Biblioteca com os algorítmos para a geração de hash's
+</script> 
+
+<script src="js/broadcast.js"> // Biblioteca com os algorítmos para a distribuição dos blocos na rede.
+</script> 
+
+<script> 
+
+const data = 'Principal';
+
+var timeStamp = Date.now();
+
+// a função mine deve ser assíncrona pois ela vai ter que esperar com "await" os algorpitmos de criptografia que também sãp assíncronos
+async function mine(text, timeStamp) {
+
+
+var nonce = 0;
+
+
+var myfetch = await fetch('/localblock', {
+	method: 'POST',
+	body: 'data='+text+'&timeStamp='+timeStamp, // The data
+	headers: {
+		'Content-type': 'application/x-www-form-urlencoded' // The type of data you're sending
+	}
+});
+
+
+
+var jsontext = await myfetch.text();
+
+
+
+
+return jsontext;
+}
+
+mine(data, timeStamp).then(result =>{ 
+alert(result);
+alert("dados salvos");
+})
+
+</script>
+
+
+

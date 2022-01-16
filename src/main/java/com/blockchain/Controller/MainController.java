@@ -2,6 +2,7 @@ package com.blockchain.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -137,6 +138,14 @@ public String Test() {
 	return "teste";
 }
 
+@GetMapping("/mine_block")
+public String MineBlock(@RequestParam String id, ModelMap model) {
+	
+	model.addAttribute("idv", id);
+	
+	return "mineblock";
+}
+
 
 
 
@@ -234,6 +243,23 @@ broadcast.block(data, timeStamp);
 
 return novoBlock.Tojson();
 }
+
+
+
+@ResponseBody
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/get_local_block")
+public String GetLocalBlock(@RequestParam String id) {
+System.out.println(id);
+
+Block b = repositorioLocal.GetBlock(Integer.valueOf(id));
+
+
+return b.Tojson();
+}
+
+
+
 
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
