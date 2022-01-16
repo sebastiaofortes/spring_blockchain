@@ -60,7 +60,7 @@ public class MainController {
 	System.out.println("criando bloco genesis");
 	}
 	
-	newBlock.mineBlock(2);
+	
 	
 	repositorioLocal.save(newBlock);
 	
@@ -138,6 +138,7 @@ public String Test() {
 	return "teste";
 }
 
+<<<<<<< HEAD
 @GetMapping("/mine_block")
 public String MineBlock(@RequestParam String id, ModelMap model) {
 	
@@ -146,6 +147,26 @@ public String MineBlock(@RequestParam String id, ModelMap model) {
 	return "mineblock";
 }
 
+=======
+@RequestMapping("/test2")
+public String Test2() {
+	
+	
+	
+	return "teste2";
+}
+
+
+@RequestMapping("/mine_block")
+public String MineBlock() {
+	
+	
+	
+	return "mine_block";
+}
+
+
+>>>>>>> d96a3ba9a4af0e541c7bb75c0006a8ee069f5e5b
 
 
 
@@ -224,7 +245,7 @@ public String LocalPOW(@RequestParam String data,@RequestParam String timeStamp)
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
-repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
+repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Id"));
 
 broadcast.pow(data,timeStamp);
 
@@ -282,7 +303,7 @@ public String RemotePOW(@RequestParam String data, @RequestParam String timeStam
 JSONObject json = new JSONObject(data);
 System.out.println(data);
 
-repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Hash"));
+repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce"), json.getString("Id"));
 
 	
 return "User X: socessfull";

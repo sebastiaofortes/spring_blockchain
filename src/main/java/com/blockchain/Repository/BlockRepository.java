@@ -21,7 +21,7 @@ Block ultimoRegistro();
 // UPDATE TRANS SET DIFFICULTY_HASH = 's', NONCE = 11 WHERE HASH = 'c7aafc2b4a5a5ef32b16a7464796227f28fd2f1805f0e670c0a0e31739d75c30'
 
 @Modifying
-@Query(value = "UPDATE TRANS SET DIFFICULTY_HASH = ?1, NONCE = ?2 WHERE HASH = ?3", nativeQuery=true)
+@Query(value = "UPDATE TRANS SET HASH = ?1, NONCE = ?2 WHERE ID = ?3", nativeQuery=true)
 int updateHash(String ph, int nonce, String hash);
 
 

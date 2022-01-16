@@ -67,7 +67,7 @@ public class Block {
 			this.timeStamp
 				= timeStamp;
 			this.hash
-				= calculateHash();
+				= "not mined";
 		}
 
 		// Function to calculate the hash
