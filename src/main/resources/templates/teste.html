@@ -4,9 +4,11 @@
 <script src="js/broadcast.js"> // Biblioteca com os algorítmos para a distribuição dos blocos na rede.
 </script> 
 
+<input type="hidden" th:value="${data}" id="tdata">
+
 <script> 
 
-const data = 'Principal';
+const data = document.getElementById("tdata").value;
 
 var timeStamp = Date.now();
 

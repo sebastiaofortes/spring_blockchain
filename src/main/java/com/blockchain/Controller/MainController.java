@@ -129,16 +129,44 @@ public String validation() {
 	return "validation";
 }
 
-@RequestMapping("/test")
-public String Test() {
+@GetMapping("/minerar_block")
+public String Mineb(@RequestParam String data, ModelMap model) {
 	
 	
+	model.addAttribute("data", data);
+	return "minerar";
+}
+
+@GetMapping("/test")
+public String Test(@RequestParam String data, ModelMap model) {
 	
+	
+	model.addAttribute("data", data);
 	return "teste";
 }
 
+@GetMapping("/test2")
+public String Test2(@RequestParam String data, ModelMap model) {
+	
+	
+	model.addAttribute("data", data);
+	return "test2";
+}
 
+@RequestMapping("/transac")
+public String Transac() {
+	
+	
+	
+	return "transac";
+}
 
+@RequestMapping("/transac2")
+public String Transac2() {
+	
+	
+	
+	return "transac2";}
 
 @RequestMapping("/translist")public String listandoT (ModelMap model) { 
 
@@ -148,6 +176,18 @@ String textres = Integer.toString(numres);
 model.addAttribute("numeroresultados", textres);
 model.addAttribute("blocks", lista);
 return "translist";
+}
+
+
+@ResponseBody
+@RequestMapping("/getblock")
+public String getB(@RequestParam String data,ModelMap model) { 
+
+Block lista = repositorioLocal.getRegistro(data);
+
+
+
+return lista.Tojson();
 }
 
 
@@ -168,14 +208,14 @@ return "translist";
 	
 @Transactional
 @GetMapping(path="/dell_block") 
-	  public @ResponseBody String dellBlock(@RequestParam String nome) {
+	  public String dellBlock(@RequestParam String nome) {
 
        
         repositorioLocal.deleteB(Integer.valueOf(nome));
 
 	System.out.println("Relacionamentos excluídos ");
 	  
-	 return "Dados deletados com sucesso!";	  
+	 return "dell_block";	  
 	  }	
 	
 	
@@ -219,7 +259,7 @@ repositorioLocal.updateHash(json.getString("difficultyHash"), json.getInt("nonce
 
 broadcast.pow(data,timeStamp);
 
-return json.getString("difficultyHash") + json.getString("Hash") + String.valueOf(json.getInt("nonce"));
+return "difficultiHash:"+json.getString("difficultyHash") + json.getString("Hash") + String.valueOf(json.getInt("nonce"));
 }
 
 @ResponseBody

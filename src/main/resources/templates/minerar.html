@@ -1,0 +1,84 @@
+<script src="js/sha256.js"> // Biblioteca com os algorítmos para a geração de hash's
+</script> 
+
+<script src="js/broadcast.js"> // Biblioteca com os algorítmos para a distribuição dos blocos na rede.
+</script> 
+
+<input type="hidden" th:value="${data}" id="tdata">
+
+<script> 
+
+const data = document.getElementById("tdata").value;
+
+var timeStamp = Date.now();
+
+// a função mine deve ser assíncrona pois ela vai ter que esperar com "await" os algorpitmos de criptografia que também sãp assíncronos
+async function mine(text, timeStamp) {
+
+
+var nonce = 0;
+
+
+var myfetch = await fetch('/getblock', {
+	method: 'POST',
+	body: 'data='+text, // The data
+	headers: {
+		'Content-type': 'application/x-www-form-urlencoded' // The type of data you're sending
+	}
+});
+
+
+
+var jsontext = await myfetch.text();
+
+alert('dados obtidos');
+alert(jsontext);
+
+var jsonf = JSON.parse(jsontext);
+
+var difficulty = parseInt(jsonf.difficulty); // nível de dificuldade da prova de trabalho. 
+
+console.log(jsonf);
+
+var hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);  // gera o hash
+
+var antes = Date.now();  		// incia contagem de tempo
+
+while (!(/^0*$/.test(hash.substring(0, difficulty)))) {  	// verifica se o hash atende a prova de trabalho
+            nonce++;
+            hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);
+        }
+
+var duracao = Date.now() - antes;       // finaliza a contagem de tempo
+
+alert("difficultyhash minerado:  " + hash);
+alert("Tempo de mineração: " + duracao + " ms ");
+
+var obj = new Object();
+
+obj.previoushash  = jsonf.previousHash;
+obj.Hash = jsonf.hash;
+obj.data = jsonf.data;
+obj.timestamp  = jsonf.timestamp;
+obj.nonce = nonce;
+obj.difficulty = difficulty;
+obj.difficultyHash = hash;
+
+var jsonString = JSON.stringify(obj);
+
+
+
+return jsonString;
+}
+
+mine(data, timeStamp).then(result =>{ 
+alert(result);
+return broadcast(result, timeStamp);	// distribuí os dados pela rede.
+}).then(
+result => {return result.text()
+}).then(
+
+result => alert('valor de pow:'+result)
+)
+
+</script>

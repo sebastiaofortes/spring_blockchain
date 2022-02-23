@@ -32,7 +32,16 @@
 </form> 
    
     </td>
-    
+ 
+        <td> 
+   
+   <form action="/minerar_block" method="GET">
+  
+  <input type="hidden" th:value="${block.Id}" name="data">
+  <input type="submit" value="Minerar">
+</form> 
+   
+    </td>   
     
     
   </tr>
