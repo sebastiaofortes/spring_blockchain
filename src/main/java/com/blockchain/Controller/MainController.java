@@ -180,6 +180,7 @@ return "translist";
 
 
 @ResponseBody
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/getblock")
 public String getB(@RequestParam String data,ModelMap model) { 
 
