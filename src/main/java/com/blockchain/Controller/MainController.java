@@ -181,7 +181,7 @@ return "translist";
 
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/getblock")
+@GetMapping("/getblock")
 public String getB(@RequestParam String data,ModelMap model) { 
 
 Block lista = repositorioLocal.getRegistro(data);
