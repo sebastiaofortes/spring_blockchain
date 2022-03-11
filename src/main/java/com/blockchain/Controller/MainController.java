@@ -187,6 +187,7 @@ public String getB(@RequestParam String data,ModelMap model) {
 
 int number = Integer.parseInt(data);
 
+Block lista = repositorioLocal.getRegistro(number);
 
 
 return "lista.Tojson()";
