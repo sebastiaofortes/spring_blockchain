@@ -19,7 +19,7 @@ public interface BlockRepository extends CrudRepository<Block, String>{
 Block ultimoRegistro();
 
 @Query(value = "SELECT * FROM TRANS WHERE ID = ?", nativeQuery=true)
-Block getRegistro(String id);
+Block getRegistro(int id);
 
 // UPDATE TRANS SET DIFFICULTY_HASH = 's', NONCE = 11 WHERE HASH = 'c7aafc2b4a5a5ef32b16a7464796227f28fd2f1805f0e670c0a0e31739d75c30'
 
