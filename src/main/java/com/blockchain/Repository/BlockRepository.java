@@ -15,7 +15,7 @@ import com.blockchain.Model.Block;
 @Repository
 public interface BlockRepository extends CrudRepository<Block, String>{
 
-@Query(value = "SELECT * FROM TRANS WHERE ID =(SELECT MAX (ID) FROM TRANS)", nativeQuery=true)
+@Query(value = "SELECT * FROM TRANS WHERE ID =(SELECT MAX(ID) FROM TRANS)", nativeQuery=true)
 Block ultimoRegistro();
 
 @Query(value = "SELECT * FROM TRANS WHERE ID = ?", nativeQuery=true)
