@@ -188,7 +188,7 @@ Block lista = repositorioLocal.getRegistro(data);
 
 
 
-return lista.Tojson();
+return "lista.Tojson()";
 }
 
 
