@@ -190,7 +190,7 @@ int number = Integer.parseInt(data);
 Block lista = repositorioLocal.getRegistro(number);
 
 
-return "lista.Tojson()";
+return lista.Tojson();
 }
 
 
