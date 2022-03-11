@@ -182,7 +182,7 @@ return "translist";
 
 @ResponseBody
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@GetMapping("/getblock")
+@RequestMapping("/getblock")
 public String getB(@RequestParam String data,ModelMap model) { 
 
 int number = Integer.parseInt(data);
