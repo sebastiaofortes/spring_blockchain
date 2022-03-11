@@ -2,6 +2,7 @@ package com.blockchain.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Integer;
 
 import javax.transaction.Transactional;
 
@@ -184,7 +185,7 @@ return "translist";
 @GetMapping("/getblock")
 public String getB(@RequestParam String data,ModelMap model) { 
 
-
+int number = Integer.parseInt(data);
 
 
 
