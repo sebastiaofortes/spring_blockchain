@@ -58,7 +58,10 @@ var jsonString = JSON.stringify(obj);
 return jsonString;
 }
 
-mine(data, timeStamp).then(result =>alert(result));
+mine(data, timeStamp).then(result => {
+alert(result);
+window.location.href = "/";				      
+});
 
 
 </script>
