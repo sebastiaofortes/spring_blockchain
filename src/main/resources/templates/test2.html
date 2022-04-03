@@ -37,11 +37,6 @@ var difficulty = parseInt(jsonf.difficulty); // nível de dificuldade da prova d
 
 console.log(jsonf);
 
-var hash = await digestMessage(jsonf.previousHash + jsonf.data + jsonf.timestamp + nonce);  // gera o hash
-
-var antes = Date.now();  		// incia contagem de tempo
-
-
 var obj = new Object();
 
 obj.previoushash  = jsonf.previousHash;
